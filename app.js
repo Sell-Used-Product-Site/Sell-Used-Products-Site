@@ -16,13 +16,13 @@ mongoose.connect('mongodb+srv://jimsonkavil:Justin501@atlascluster.mf8hmti.mongo
 
 app.use(express.json());
 
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
+const userRoutes = require('./routes/userRoute');
+const productRoutes = require('./routes/productRoute');
+const categoryRoutes = require('./routes/categoryRoute');
 
-app.use('/users', userRoutes);
-app.use('/products', productRoutes);
-app.use('/categories', categoryRoutes);
+app.use('/users', userRoute);
+app.use('/products', productRoute);
+app.use('/categories', categoryRoute);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
