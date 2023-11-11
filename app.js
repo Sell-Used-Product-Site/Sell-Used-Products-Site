@@ -16,9 +16,9 @@ mongoose.connect('mongodb+srv://jimsonkavil:Justin501@atlascluster.mf8hmti.mongo
 
 app.use(express.json());
 
-const userRoutes = require('./routes/userRoute');
-const productRoutes = require('./routes/productRoute');
-const categoryRoutes = require('./routes/categoryRoute');
+const userRoute = require('./routes/userRoute');
+const productRoute = require('./routes/productRoute');
+const categoryRoute = require('./routes/categoryRoute');
 
 app.use('/users', userRoute);
 app.use('/products', productRoute);
