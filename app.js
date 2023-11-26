@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const port = 3000; 
+const port = 5001; 
 
 mongoose.connect('mongodb+srv://jimsonkavil:Justin501@atlascluster.mf8hmti.mongodb.net/', {
   useNewUrlParser: true,
@@ -20,9 +20,9 @@ const userRoute = require('./routes/userRoute');
 const productRoute = require('./routes/productRoute');
 const categoryRoute = require('./routes/categoryRoute');
 
-app.use('/users', userRoute);
-app.use('/products', productRoute);
-app.use('/categories', categoryRoute);
+app.use('/api/users', userRoute);
+app.use('/api/products', productRoute);
+app.use('/api/categories', categoryRoute);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
