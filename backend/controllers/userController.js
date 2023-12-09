@@ -37,4 +37,17 @@ const signupUser = async (req, res) => {
   }
 }
 
-module.exports = { signupUser, loginUser }
+const editUser = async (req, res) => {
+  const { email, password} = req.body;
+
+  try {
+    // Call the edit method from the User model
+    const updatedUser = await User.edit( user._id, email, password );
+
+    res.status(200).json({ success: true, message: 'User information updated successfully', user: updatedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message});
+  }
+}
+module.exports = { signupUser, loginUser, editUser }

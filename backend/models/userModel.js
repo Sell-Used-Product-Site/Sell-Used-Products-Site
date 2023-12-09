@@ -64,4 +64,32 @@ userSchema.statics.login = async function(email, password) {
   return user
 }
 
+userSchema.statics.edit = async function(userId, updates) {
+  try {
+    // Find the user by ID
+    const user = await this.findById(userId);
+
+    if (!user) {
+      throw Error('User not found');
+    }
+
+    // Update user information
+    if (updates.email) {
+      if (!validator.isEmail(updates.email)) {
+        throw Error('Email not valid');
+      }
+      user.email = updates.email;
+    }
+
+    // Add other fields as needed
+
+    // Save the updated user
+    await user.save();
+
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = mongoose.model('User', userSchema)

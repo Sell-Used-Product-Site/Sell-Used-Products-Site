@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
+import { useEditProfile } from '../hooks/useEdit'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const Navbar = () => {
+  const { editProfile } = useEditProfile()
   const { logout } = useLogout()
   const { user } = useAuthContext()
 
@@ -21,6 +23,7 @@ const Navbar = () => {
             <div>
               <span>{user.email}</span>
               <button onClick={handleClick}>Log out</button>
+              <Link to="/edit">Edit Profile</Link>
             </div>
           )}
           {!user && (
