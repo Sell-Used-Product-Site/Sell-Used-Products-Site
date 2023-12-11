@@ -4,11 +4,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 const productRoutes = require('./routes/products')
 const userRoutes = require('./routes/user')
-var http = require('http');
-var debug = require('debug')('comp229006:server');
+
 // express app
 const app = express()
 
+app.use(cors());
 // middleware
 app.use(express.json())
 
