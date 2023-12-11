@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useProductsContext } from "../hooks/useProductsContext"
 import { useAuthContext } from '../hooks/useAuthContext'
-
+let apiURL = process.env.REACT_APP_APIURL
 const ProductForm = () => {
   const { dispatch } = useProductsContext()
   const { user } = useAuthContext()
@@ -22,7 +22,7 @@ const ProductForm = () => {
 
     const product = {title, decription, price}
 
-    const response = await fetch('/api/products', {
+    const response = await fetch(apiURL+'/api/products', {
       method: 'POST',
       body: JSON.stringify(product),
       headers: {

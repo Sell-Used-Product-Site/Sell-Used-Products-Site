@@ -1,5 +1,6 @@
 import { useProductsContext } from '../hooks/useProductsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+let apiURL = process.env.REACT_APP_APIURL
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
@@ -13,7 +14,7 @@ const ProductDetails = ({ product }) => {
       return
     }
 
-    const response = await fetch('/api/products/' + product._id, {
+    const response = await fetch(apiURL+'/api/products/' + product._id, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
