@@ -5,7 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext"
 // components
 import ProductDetails from '../components/ProductDetails'
 import ProductForm from '../components/ProductForm'
-
+let apiURL = process.env.REACT_APP_APIURL
 const Home = () => {
   const {products, dispatch} = useProductsContext()
   const {user} = useAuthContext()
@@ -22,7 +22,7 @@ const Home = () => {
         requestOptions.headers['Authorization'] = `Bearer ${user.token}`;
       }
 
-      const response = await fetch('/api/products', requestOptions);
+      const response = await fetch(apiURL+'/api/products', requestOptions);
       const json = await response.json();
 
       if (response.ok) {
