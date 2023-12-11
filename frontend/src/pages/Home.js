@@ -1,11 +1,11 @@
 import { useEffect }from 'react'
 import { useProductsContext } from "../hooks/useProductsContext"
 import { useAuthContext } from "../hooks/useAuthContext"
-let apiURL = process.env.REACT_APP_APIURL
+
 // components
 import ProductDetails from '../components/ProductDetails'
 import ProductForm from '../components/ProductForm'
-
+let apiURL = process.env.REACT_APP_APIURL
 const Home = () => {
   const {products, dispatch} = useProductsContext()
   const {user} = useAuthContext()

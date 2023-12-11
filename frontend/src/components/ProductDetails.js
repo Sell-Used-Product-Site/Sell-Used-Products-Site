@@ -1,10 +1,10 @@
 import { useProductsContext } from '../hooks/useProductsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
-let apiURL = process.env.REACT_APP_APIURL
+
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-
+let apiURL = process.env.REACT_APP_APIURL
 const ProductDetails = ({ product }) => {
   const { dispatch } = useProductsContext()
   const { user } = useAuthContext()
